@@ -1,0 +1,15 @@
+server:
+  port: 3344
+spring:
+  application:
+    name: cloud-config-center
+  cloud:
+    config:
+      server:
+        git:
+          uri: git@github.com:Iron-Rush/wolf_study.git  #GitHub上的git仓库名https://github.com/Iron-Rush/wolf_study.git
+          ## 搜索目录
+          search-paths:
+            - wolf_study
+
+      label: master
