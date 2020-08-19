@@ -60,7 +60,8 @@ public class TestAmnt {
         bodyMap.put("Accident", String.valueOf(getAutoNumber(0, 3000000)));
         bodyMap.put("Medical", String.valueOf(getAutoNumber(0, 3040000)));
         map.put("TransHead", headMap);
-        map.put("TransBody", bodyMap);
+//        map.put("TransBody", bodyMap);
+        map.put("TransBody", amnt);
         return JSONObject.toJSONString(map, SerializerFeature.WriteMapNullValue);
     }
 
@@ -70,16 +71,16 @@ public class TestAmnt {
     }
 
     private static String amnt = "{\n" +
-            " \"Name\": \"SophiaT\",\n" +
-            " \"Sex\": \"0\",\n" +
-            " \"Birthday\": \"1998-09-07\",\n" +
-            " \"IDType\": \"8\",\n" +
-            " \"IDNo\": \"98762573\",\n" +
-            " \"AgentCode\": \"8601000037\",\n" +
-            " \"Life\": 20000000,\n" +
-            " \"Illness\": 2000009,\n" +
-            " \"Accident\": 1900009,\n" +
-            " \"Medical\": 0\n" +
+            "\"Name\": \"Monphy\",\n" +
+            "\t\t\"Sex\": \"0\",\n" +
+            "\t\t\"Birthday\": \"1950-08-17\",\n" +
+            "\t\t\"IDType\": \"8\",\n" +
+            "\t\t\"IDNo\": \"98762573\",\n" +
+            "\t\t\"AgentCode\": \"8601000037\",\n" +
+            "\t\t\"Life\": 250000,\n" +
+            "\t\t\"Illness\": 300000,\n" +
+            "\t\t\"Accident\": 100000,\n" +
+            "\t\t\"Medical\": 2000000" +
             "}";
 
     public void toRequest(String json) {
