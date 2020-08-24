@@ -1,0 +1,37 @@
+server:
+  port: 3344
+spring:
+  application:
+    name: cloud-config-center
+  cloud:
+    config:
+      server:
+        git:
+          # http://localhost:3344/master/config-prod.yml
+          # http://localhost:3344/config-prod.yml #读取默认分支
+          # http://localhost:3344/config/prod/master
+          uri: https://github.com/Iron-Rush/wolf_study.git  #GitHub上的git仓库名 git@github.com:Iron-Rush/wolf_study.git/uri: https://github.com/zzyybs/springcloud-config.git
+          ## 搜索目录
+          search-paths:
+            - wolf_study
+      label: master
+  # rabbitmq相关配置  15672是管理界面的端口，5672是MQ访问的端口
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+# rabbitmq相关配置
+# 一次发送，处处生效：curl -X POST "http://localhost:3344/actuator/bus-refresh"
+# 定点通知 curl -X POST "http://localhost:3344/actuator/bus-refresh/config-client:3356"(spring.application.name:port)
+management:
+  endpoints:
+    web:
+      exposure:
+        include: 'bus-refresh'
+
+# 服务注册到eureka地址
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:7001/eureka
